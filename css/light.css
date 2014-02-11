@@ -1,0 +1,27 @@
+.containerfooter {
+			background-color: rgba(255,255,255,0.90);
+}
+
+.containerbody {
+			background-color: rgba(255,255,255,0.20);
+}
+
+.containerheader {
+			background-color: rgba(255,255,255,0.90);
+}
+
+html, body {
+			color: #000;
+}
+
+.selected {
+			border-top: solid 8px #AAA;
+}
+
+.settingsicon {
+			color: #000;
+		}
+		
+.icon {
+	color: #000;
+}

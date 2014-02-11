@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />     
+		<title>Metric&#178;</title> 
+		
+       	<!-- jQuery -->
+    	<script src="https://code.jquery.com/jquery.js"></script>
+        
+		<!-- Socket.IO -->
+		<script src='/socket.io/socket.io.js'></script>
+        
+        <!-- Peity - a lightweight sparkline package for jQuery -->
+        <script src='js/jquery.peity.min.js'></script>
+        
+        <!-- Client side code needed -->
+        <script src='js/client.js'></script>
+                
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        
+        <!-- Latest compiled and minified JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        
+	</head>
+    <body>
+        <div id="top" class="background">
+          <div class="centercontainer">
+            <div class="container shadow">
+                <div class="containerheader">
+                    <table class="heading">
+                        <tr>
+                            <td rowspan="2" style="text-align: center; width: 10%;" >
+                                <img id="statusicon" src="img/OKIcon.png"/>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <h1><span id="info-name">SAP HANA Instance</span>
+                                <button class="btn btn-link" data-toggle="modal" data-target="#myModal">
+                                  <span class="glyphicon glyphicon-cog settingsicon"></span>
+                                </button>
+                                </h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="h3" style="padding-top: 20px;">
+                            	<span class="glyphicon glyphicon-flag icon" style="margin-left: 0px;" /></span><span id="info-alerts">0</span> Alerts
+                                <span class="glyphicon glyphicon-repeat icon"></span><span id="info-version">1.0</span>
+                                <span class="glyphicon glyphicon-map-marker icon"></span><span id="info-detail">Server Location</span>                                
+                            </td>
+                        </tr>
+                    </table>
+                    
+        
+                </div>
+                <div class="containerbody">
+                    <span class="history">0</span>
+                </div>
+                <div class="containerfooter">
+                    <table class="info">
+                        <tr>
+                            <td id="infoUSERS" class="td-info" onClick="setChart('USERS');">
+								<!-- The ID of each of our <SPAN> tags is important for updating the data being returned from the server -->
+								<span id="info-users" class="h1">0</span><br />
+                                <span class="h3">Users</span>
+                            </td>
+                            <td class="td-info">&nbsp;</td>
+                            <td id="infoDISK" class="td-info" onClick="setChart('DISK');">
+                                <span id="info-disk" class="h1">0</span> <sup>GB</sup><br />
+                                <span class="h3">Free Disk</span>
+                            </td>
+                            <td id="infoMEM" class="td-info" onClick="setChart('MEM');">
+                                <span id="info-mem" class="h1">0</span> <sup>GB</sup><br />
+                                <span class="h3">Free Memory</span>
+                            </td>
+                            <td id="infoCPU" class="td-info selected" onClick="setChart('CPU');">
+                                <span id="info-cpu" class="h1">0</span> <sup>%</sup><br />
+                                <span class="h3">CPU</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div> <!-- /.containerfooter -->
+            </div> <!-- /.container -->
+          </div> <!-- /.centercontainer -->
+        </div> <!-- /.top -->
+        
+        
+        
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Settings</h4>
+              </div>
+              <div class="modal-body">
+              <form id="modalbox" role="form">
+              	<div class="form-group">
+                    <label for="servername">Name</label>
+                    <input type="text" class="form-control" id="servername" placeholder="Enter a reference server name">
+                  </div>
+                  <div class="form-group">
+                    <label for="serverdetail">Location</label>
+                    <input type="text" class="form-control" id="serverdetail" placeholder="Description, Location or Other Information">
+                  </div>
+                  <div class="form-group">
+                  <label for="bg">Background</label><br />
+                  	<label class="radio-inline">
+                      <input type="radio" name="bg" value="../img/bg1.jpg" checked> Background 1
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="bg" value="../img/bg2.jpg"> Background 2
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="bg" value="../img/bg3.jpg"> Background 3
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="bg" value="none;"> None
+                    </label>
+                  </div>
+                   <div class="form-group">
+                    <label for="colorscheme">Color Scheme</label><br />
+                   	<label class="radio-inline">
+                      <input type="radio" name="colorscheme" value="Dark" checked> Dark
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="colorscheme" value="Light"> Light
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="colorscheme" value="Fiori"> Fiori
+                    </label>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="modalSave" onClick="saveSettings();">Save changes</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+        
+	</body>
+</html>
