@@ -18,7 +18,12 @@ Install Requirements
 
 Node Dependencies
 
-We will also use a couple of helpful dependencies from the node community including Socket.io, Express and obviously hdb. Installing these packages is as simple as running "npm install hdb”. Once you have the dependencies installed we can start creating our app.
+We will also use a couple of helpful dependencies from the node community including: 
+- Socket.io
+- Express and 
+- hdb 
+ 
+Installing these packages is as simple as running "npm install hdb”. Once you have the dependencies installed we can start creating our app.
 
 ![SAP HDB NPM](https://nodei.co/npm/hdb.png?compact=true)
 ![HANA Node Integration](http://scn.sap.com/servlet/JiveServlet/downloadImage/38-98373-337377/474-400/pastedImage_35.png)
