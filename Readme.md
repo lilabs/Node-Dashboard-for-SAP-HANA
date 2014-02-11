@@ -32,3 +32,10 @@ Installing these packages is as simple as running "npm install hdb”. Once you 
 Read More
 ----
 [You can read more here](http://scn.sap.com/community/developer-center/hana/blog/2013/12/05/nodejs-dashboard-for-sap-hana)
+
+License
+----
+
+Node Dashboard for SAP HANA is available under the MIT license.
+
+Copyright © 2014 Paul Aschmann
