@@ -1,7 +1,7 @@
+![Screenshot](http://scn.sap.com/servlet/JiveServlet/showImage/38-98373-337370/pastedImage_15.png)
+
 Node.js dashboard for SAP HANA
 =========
-
-![Screenshot](http://scn.sap.com/servlet/JiveServlet/showImage/38-98373-337370/pastedImage_15.png)
 
 A realtime web dashboard which displays informaion about how your SAP HANA DB is performing. Includes CPU, Memory, and Disk Space. Intended to be used on a large format monitor in a IT operations room or similar scenario.
 
