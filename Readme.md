@@ -1,4 +1,4 @@
-![Screenshot](http://scn.sap.com/servlet/JiveServlet/showImage/38-98373-337370/pastedImage_15.png)
+![Screenshot](https://github.com/lilabs/Node-Dashboard-for-SAP-HANA/blob/master/img/screenshot.png)
 
 Node.js dashboard for SAP HANA
 =========
